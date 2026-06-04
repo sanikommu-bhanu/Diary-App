@@ -11,8 +11,6 @@ import { useStreak } from "@/hooks/useStreak"
 import { EntryCard } from "@/features/entries/EntryCard"
 import { EntryModal } from "@/features/entries/EntryModal"
 import { MoodSelector } from "@/features/entries/MoodSelector"
-import { GlassCard } from "@/components/ui/GlassCard"
-import { MagicButton } from "@/components/ui/MagicButton"
 import { getDailyQuote } from "@/lib/quotes"
 import { EmptyState } from "@/components/ui/EmptyState"
 import { getGreeting, cn } from "@/lib/utils"
@@ -185,9 +183,9 @@ export default function HomePage() {
         transition={{ delay: 0.4 }}
         className="glass rounded-2xl p-5 mb-6 border border-fairy-purple/20 bg-gradient-to-br from-fairy-purple/10 to-transparent"
       >
-        <p className="text-xs text-fairy-purple/70 mb-2 font-medium uppercase tracking-wide">Today's Thought</p>
+        <p className="text-xs text-fairy-purple/70 mb-2 font-medium uppercase tracking-wide">Today&apos;s Thought</p>
         <p className="font-display text-base italic text-fairy-text/90 leading-relaxed mb-2">
-          "{quote.text}"
+          &ldquo;{quote.text}&rdquo;
         </p>
         <p className="text-xs text-fairy-text-muted/60">— {quote.author}</p>
       </motion.div>

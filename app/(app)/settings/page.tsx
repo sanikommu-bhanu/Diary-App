@@ -61,6 +61,26 @@ export default function SettingsPage() {
     showToast("Backup exported! 💾")
   }
 
+  const handleExportMarkdown = async () => {
+    if (entries.length === 0) {
+      showToast("No entries to export", "info")
+      return
+    }
+    try {
+      const { exportEntries, downloadMarkdown, generateExportFilename } = await import("@/lib/export")
+      const mdContent = exportEntries(entries, {
+        includeStats: true,
+        includeMetadata: true,
+        title: `${settings.displayName || "My"}'s FairyDiary Journal`
+      })
+      const filename = generateExportFilename()
+      downloadMarkdown(mdContent, filename)
+      showToast("Journal exported as Markdown! 📝")
+    } catch {
+      showToast("Failed to export Markdown", "error")
+    }
+  }
+
   const handleImport = () => {
     const input = document.createElement("input")
     input.type   = "file"
@@ -408,6 +428,12 @@ export default function SettingsPage() {
             label="Export Backup"
             sub="Download all entries as JSON"
             onClick={handleExport}
+          />
+          <SettingRow
+            icon={<Download size={16} className="text-purple-400" />}
+            label="Export to Markdown"
+            sub="Save entries as formatted Markdown (.md)"
+            onClick={handleExportMarkdown}
           />
           <SettingRow
             icon={<Upload size={16} className="text-blue-400" />}

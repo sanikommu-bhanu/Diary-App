@@ -94,15 +94,19 @@ export function EntryEditor() {
     router.push("/home")
   }
 
-  const handleAIResult = (result: string, type: "enhanced" | "title" | "mood" | "reflection") => {
-    if (type === "enhanced") { setEnhancedText(result); setActiveTab("enhanced") }
-    else if (type === "title") { setTitle(result.replace(/^["''""]/g, "").replace(/["''"""]$/g, "")) }
-    else if (type === "mood") {
+  const handleAIResult = (result: string | string[], type: "enhanced" | "title" | "mood" | "reflection") => {
+    if (type === "enhanced" && typeof result === "string") { setEnhancedText(result); setActiveTab("enhanced") }
+    else if (type === "title" && typeof result === "string") { setTitle(result.replace(/^["'“”]/g, "").replace(/["'“”]$/g, "")) }
+    else if (type === "mood" && typeof result === "string") {
       const valid: Mood[] = ["happy", "sad", "calm", "angry", "dreamy", "romantic", "neutral"]
       const detected = result.toLowerCase().trim() as Mood
       if (valid.includes(detected)) setMood(detected)
     } else if (type === "reflection") {
-      setReflectionQs(result.split("\n").filter(l => l.match(/^\d+\./)).map(q => q.replace(/^\d+\.\s*/, "")))
+      if (Array.isArray(result)) {
+        setReflectionQs(result)
+      } else if (typeof result === "string") {
+        setReflectionQs(result.split("\n").filter(l => l.match(/^\d+\./)).map(q => q.replace(/^\d+\.\s*/, "")))
+      }
     }
   }
 

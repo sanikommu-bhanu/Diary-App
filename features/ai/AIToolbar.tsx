@@ -26,12 +26,12 @@ const AI_TOOLS: AITool[] = [
 const QUICK_TOOLS = [
   { id: "title", label: "Smart Title", emoji: "🔮", endpoint: "/api/ai/title" },
   { id: "mood", label: "Detect Mood", emoji: "💫", endpoint: "/api/ai/mood" },
-  { id: "reflection", label: "Reflect", emoji: "🪞", endpoint: "/api/ai/rewrite" },
+  { id: "reflection", label: "Reflect", emoji: "🪞", endpoint: "/api/ai/reflect" },
 ]
 
 interface AIToolbarProps {
   text: string
-  onResult: (result: string, type: "enhanced" | "title" | "mood" | "reflection") => void
+  onResult: (result: any, type: "enhanced" | "title" | "mood" | "reflection") => void
   className?: string
 }
 
@@ -129,7 +129,7 @@ export function AIToolbar({ text, onResult, className }: AIToolbarProps) {
                     emoji="🪞"
                     label="Reflect"
                     loading={loading === "reflection"}
-                    onClick={() => callAI("/api/ai/rewrite", "reflection", "reflection")}
+                    onClick={() => callAI("/api/ai/reflect", "reflection", "reflection")}
                   />
                 </div>
               </div>

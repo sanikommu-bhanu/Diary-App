@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import { useAppStore } from "@/store/app-store"
 import type { Entry, Mood } from "@/types"
 import { groupEntriesByDate, groupEntriesByMonth } from "@/lib/utils"
+import { searchEntries as fuzzySearchEntries } from "@/lib/search"
 
 export function useEntries() {
   const { entries, addEntry, updateEntry, deleteEntry, toggleFavorite } = useAppStore()
@@ -25,16 +26,17 @@ export function useEntries() {
   const recentEntries = useMemo(() => sorted.slice(0, 10), [sorted])
 
   const searchEntries = (query: string, mood?: Mood | null, tag?: string | null): Entry[] => {
-    return sorted.filter((e) => {
-      const matchesQuery =
-        !query ||
-        e.title.toLowerCase().includes(query.toLowerCase()) ||
-        e.rawText.toLowerCase().includes(query.toLowerCase()) ||
-        (e.enhancedText?.toLowerCase().includes(query.toLowerCase()) ?? false)
-      const matchesMood = !mood || e.mood === mood
-      const matchesTag = !tag || e.tags.includes(tag)
-      return matchesQuery && matchesMood && matchesTag
-    })
+    let baseEntries = sorted
+    if (mood) {
+      baseEntries = baseEntries.filter((e) => e.mood === mood)
+    }
+    if (tag) {
+      baseEntries = baseEntries.filter((e) => e.tags.includes(tag))
+    }
+    if (!query.trim()) {
+      return baseEntries
+    }
+    return fuzzySearchEntries(baseEntries, query, 100).map((r) => r.entry)
   }
 
   const getAllTags = (): string[] => {

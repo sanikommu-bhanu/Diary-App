@@ -13,6 +13,7 @@ import { useStreak } from "@/hooks/useStreak"
 import { getMoodFrequency, getMoodColor } from "@/lib/utils"
 import { MOOD_CONFIG } from "@/types"
 import { WeeklySummary } from "@/features/insights/WeeklySummary"
+import { AIAnalytics } from "@/features/insights/AIAnalytics"
 import { EmptyState } from "@/components/ui/EmptyState"
 import type { Mood } from "@/types"
 
@@ -256,6 +257,11 @@ export function InsightsContent() {
           <span className="text-fairy-text-muted/50 text-sm" aria-hidden="true">→</span>
         </motion.div>
       </Link>
+
+      {/* AI Writing Coach Analytics */}
+      <div className="mt-4">
+        <AIAnalytics />
+      </div>
 
       {/* Weekly AI summary */}
       <div className="mt-4">

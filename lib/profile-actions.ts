@@ -7,10 +7,8 @@ import {
   setActiveProfileId,
   getActiveProfileId,
   listProfiles,
-  updateProfileDisplayName,
 } from "@/lib/profiles"
 import {
-  clearActiveProfileData,
   deleteProfileMediaDb,
   saveSettings,
   DEFAULT_SETTINGS,
