@@ -1,45 +1,93 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="FairyDiary app icon">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffeaf5"/>
-      <stop offset="100%" stop-color="#f8cfe7"/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0533"/>
+      <stop offset="50%" stop-color="#0d0618"/>
+      <stop offset="100%" stop-color="#130d30"/>
     </linearGradient>
-    <linearGradient id="bookBody" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fffdfa"/>
-      <stop offset="100%" stop-color="#ffe8f4"/>
+    <linearGradient id="pageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
     </linearGradient>
-    <linearGradient id="bookEdge" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff86c2"/>
-      <stop offset="100%" stop-color="#ef5da8"/>
+    <linearGradient id="spineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#9333ea"/>
     </linearGradient>
-    <linearGradient id="heart" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff7dbc"/>
-      <stop offset="100%" stop-color="#f03f9b"/>
+    <linearGradient id="quillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
     </linearGradient>
+    <radialGradient id="glowCenter" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1a0533" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dropShadow" x="-20%" y="-10%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#7c3aed" flood-opacity="0.4"/>
+    </filter>
+    <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
   </defs>
 
-  <rect x="6" y="6" width="180" height="180" rx="36" fill="url(#bg)"/>
+  <!-- Background -->
+  <rect width="192" height="192" rx="40" fill="url(#bgGrad)"/>
+  <rect width="192" height="192" rx="40" fill="url(#glowCenter)"/>
 
-  <g opacity="0.9">
-    <path d="M38 58l5-8 5 8 9 3-9 3-5 8-5-8-9-3z" fill="#ffd45e"/>
-    <path d="M140 43l4-6 4 6 6 2-6 2-4 6-4-6-6-2z" fill="#ffd45e"/>
-    <path d="M156 60l4-5 4 5 6 2-6 2-4 5-4-5-6-2z" fill="#fff6d8"/>
+  <!-- Stars -->
+  <g opacity="0.7" filter="url(#starGlow)">
+    <circle cx="30"  cy="35"  r="1" fill="#e9d5ff"/>
+    <circle cx="158" cy="28"  r="0.8" fill="#c084fc"/>
+    <circle cx="165" cy="55"  r="1" fill="#f0abfc"/>
+    <circle cx="28"  cy="145" r="0.8" fill="#ddd6fe"/>
+    <circle cx="155" cy="135" r="0.8" fill="#c4b5fd"/>
+    <circle cx="38"  cy="60"  r="0.6" fill="#e9d5ff"/>
   </g>
 
-  <g transform="translate(2 2)">
-    <rect x="62" y="56" width="80" height="96" rx="14" fill="#f58abe"/>
-    <rect x="58" y="52" width="80" height="96" rx="14" fill="#ffb1d5"/>
-    <rect x="54" y="48" width="80" height="96" rx="14" fill="url(#bookBody)" stroke="#ffd4ea" stroke-width="1.2"/>
-    <path d="M54 48c-7 2-11 7-13 13v74c0 8 5 12 13 14v-101z" fill="url(#bookEdge)"/>
-
-    <circle cx="84" cy="73" r="2.4" fill="#2a2230"/>
-    <circle cx="112" cy="73" r="2.4" fill="#2a2230"/>
-    <path d="M87 89c3 4 6 6 11 6 5 0 8-2 11-6" fill="none" stroke="#2a2230" stroke-width="2" stroke-linecap="round"/>
-    <ellipse cx="75" cy="81" rx="4.3" ry="2.6" fill="#ffc89f"/>
-    <ellipse cx="121" cy="81" rx="4.3" ry="2.6" fill="#ffc89f"/>
-
-    <path d="M98 123c-4-6-12-5-14 2-1 5 2 10 7 12 2 1 5 3 7 4 2-1 5-3 7-4 5-2 8-7 7-12-2-7-10-8-14-2z" fill="url(#heart)"/>
-
-    <path d="M48 132h12v15l-6 6-6-6z" fill="#ffd45e"/>
+  <!-- Sparkles -->
+  <g opacity="0.85">
+    <path d="M40 48 l2-6 2 6 6 2-6 2-2 6-2-6-6-2z" fill="#fbbf24"/>
+    <path d="M155 42 l1.5-4.5 1.5 4.5 4.5 1.5-4.5 1.5-1.5 4.5-1.5-4.5-4.5-1.5z" fill="#fde68a"/>
+    <path d="M148 145 l1.5-4 1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5z" fill="#f0abfc"/>
   </g>
+
+  <!-- Open diary book -->
+  <g filter="url(#dropShadow)" transform="translate(96 98)">
+    <!-- Spine -->
+    <rect x="-2.5" y="-40" width="5" height="80" rx="2.5" fill="url(#spineGrad)"/>
+    
+    <!-- Left page -->
+    <path d="M-2.5,-38 Q-3,-38 -52,-36 Q-55,-36 -55,-33 L-55,34 Q-55,38 -52,38 L-2.5,40 Z" fill="url(#pageGrad)" stroke="#e9d5ff" stroke-width="0.5"/>
+    
+    <!-- Right page -->
+    <path d="M2.5,-38 Q3,-38 52,-36 Q55,-36 55,-33 L55,34 Q55,38 52,38 L2.5,40 Z" fill="url(#pageGrad)" stroke="#e9d5ff" stroke-width="0.5"/>
+    
+    <!-- Page lines left -->
+    <g opacity="0.2" stroke="#a78bfa" stroke-width="0.6" stroke-linecap="round">
+      <line x1="-45" y1="-20" x2="-10" y2="-20"/>
+      <line x1="-45" y1="-10" x2="-12" y2="-10"/>
+      <line x1="-45" y1="0"   x2="-10" y2="0"/>
+      <line x1="-45" y1="10"  x2="-14" y2="10"/>
+      <line x1="-45" y1="20"  x2="-10" y2="20"/>
+    </g>
+    
+    <!-- Page lines right -->
+    <g opacity="0.2" stroke="#a78bfa" stroke-width="0.6" stroke-linecap="round">
+      <line x1="10" y1="-20" x2="45" y2="-20"/>
+      <line x1="12" y1="-10" x2="45" y2="-10"/>
+      <line x1="10" y1="0"   x2="45" y2="0"/>
+      <line x1="14" y1="10"  x2="45" y2="10"/>
+      <line x1="10" y1="20"  x2="45" y2="20"/>
+    </g>
+  </g>
+
+  <!-- Quill pen -->
+  <g transform="translate(124 58) rotate(35)">
+    <path d="M0,0 C-3,-12 -2,-28 0,-42 C2,-28 3,-12 0,0Z" fill="url(#quillGrad)" opacity="0.95"/>
+    <line x1="0" y1="0" x2="0" y2="-42" stroke="#d97706" stroke-width="0.7"/>
+    <path d="M-1,0 L0,7 L1,0Z" fill="#7c3aed"/>
+    <circle cx="0" cy="9" r="1.2" fill="#a855f7" opacity="0.7"/>
+  </g>
+
+  <!-- Heart -->
+  <path d="M50 150 C50 147 53 146 55 148 C57 146 60 147 60 150 C60 153 55 156 55 156 C55 156 50 153 50 150Z" fill="#ec4899" opacity="0.5"/>
 </svg>
