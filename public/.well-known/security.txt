@@ -1,0 +1,4 @@
+Contact: mailto:security@fairydiary.app
+Expires: 2026-12-31T23:59:00Z
+Preferred-Languages: en
+Policy: https://github.com/fairydiary/fairydiary/blob/main/SECURITY.md

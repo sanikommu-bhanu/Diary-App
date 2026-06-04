@@ -1,0 +1,4 @@
+# FairyDiary — private personal diary app
+# No content should be indexed
+User-agent: *
+Disallow: /

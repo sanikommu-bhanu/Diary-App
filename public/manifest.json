@@ -1,0 +1,27 @@
+{
+  "name": "FairyDiary — Your Magical Journal",
+  "short_name": "FairyDiary",
+  "description": "A magical, private, emotionally intelligent digital diary",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0618",
+  "theme_color": "#c084fc",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["lifestyle", "productivity"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
